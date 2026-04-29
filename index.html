@@ -144,14 +144,22 @@ You are my home 🫀
 
 </div>
 
-<audio autoplay loop>
-<source src="lofi.mp3" type="audio/mp3">
+<audio id="bgMusic" loop>
+    <source src="lofi.mp3" type="audio/mp3">
 </audio>
 
 <script>
+let musicStarted = false;
+
 document.addEventListener("click", function(e) {
 
-    // emoji logic
+    // 🎧 start music on first click
+    if (!musicStarted) {
+        document.getElementById("bgMusic").play();
+        musicStarted = true;
+    }
+
+    // 💖 emoji logic
     let emoji = document.createElement("div");
     emoji.classList.add("emoji");
 
@@ -167,7 +175,7 @@ document.addEventListener("click", function(e) {
 
     setTimeout(() => emoji.remove(), 2000);
 
-    // reveal message after scroll feel
+    // ✨ reveal message
     document.getElementById("finalText").style.opacity = 1;
 });
 </script>
